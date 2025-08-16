@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Zap, Award } from "lucide-react";
-import heroBg from "@/assets/factory-bg.jpeg"; // replace with your high-res factory image
+import { ArrowRight, Shield, Zap, Award, Facebook, Instagram, Linkedin } from "lucide-react";
+import heroBg from "@/assets/factory-bg.jpeg";
 
 const Hero = () => {
   return (
@@ -64,13 +64,26 @@ const Hero = () => {
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-white/50 text-black  hover:bg-white"
+                className="border-white/50 text-black hover:bg-[#dcdcdc]"
               >
                 <a href="#contact">Get Quote</a>
               </Button>
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Social Media Icons - Bottom Left */}
+      <div className="absolute bottom-12 left-10 md:left-20 flex space-x-4 z-20">
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-orange-400 lg:text-white hover:text-orange-400 transition-colors">
+          <Facebook className="h-6 w-6" />
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-orange-400 lg:text-white hover:text-orange-400 transition-colors">
+          <Instagram className="h-6 w-6" />
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-orange-400 lg:text-white hover:text-orange-400 transition-colors">
+          <Linkedin className="h-6 w-6" />
+        </a>
       </div>
     </section>
   );

@@ -1,5 +1,71 @@
 const Locations = () => {
-  const cities = ["New Delhi", "Mumbai", "Pune", "Bangalore", "Kolkata", "Chennai"];
+ const cities = [
+  // Delhi NCR
+  "Delhi NCR",
+  "Delhi",
+  "Gurgaon",
+  "Noida",
+  "Ghaziabad",
+  "Faridabad",
+  "Greater Noida",
+
+  // Uttar Pradesh
+  "Uttar Pradesh",
+  "Lucknow",
+  "Kanpur",
+  "Meerut",
+  "Moradabad",
+  "Ayodhya",
+  "Varanasi",
+  "Prayagraj",
+  "Gorakhpur",
+  "Agra",
+  "Aligarh",
+
+  // Uttarakhand
+  "Uttarakhand",
+  "Dehradun",
+  "Haldwani",
+  "Rudrapur",
+  "Haridwar",
+
+  // Punjab
+  "Punjab",
+  "Chandigarh",
+  "Ludhiana",
+  "Jalandhar",
+  "Patiala",
+  "Ambala",
+  "Amritsar",
+
+  // Haryana
+  "Haryana",
+  "Gurugram",
+  "Faridabad",
+  "Hisar",
+  "Sonipat",
+  "Panipat",
+  "Rohtak",
+
+  // Rajasthan
+  "Rajasthan",
+  "Jaipur",
+  "Ajmer",
+  "Kota",
+  "Jodhpur",
+  "Udaipur",
+  "Alwar",
+
+  // Madhya Pradesh
+  "Madhya Pradesh",
+  "Bhopal",
+  "Gwalior",
+  "Jhansi",
+  "Indore",
+  "Ujjain",
+  "Sagar",
+];
+
 
   return (
     <section id="locations" className="py-20 bg-section-bg">

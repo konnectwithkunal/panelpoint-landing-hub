@@ -118,15 +118,15 @@ const Footer = () => {
           <div className="space-y-6">
             <h4 className="text-lg font-semibold">Location</h4>
             <div className="w-full">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18..."
-                width="100%"
-                height="200"
-                style={{ border: 0, borderRadius: "8px" }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3387.3438684301004!2d77.5010871754962!3d28.5085086757327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjjCsDMwJzMwLjYiTiA3N8KwMzAnMTMuMiJF!5e1!3m2!1sen!2sin!4v1755346644936!5m2!1sen!2sin"
+                  width="100%"
+                  height="200"
+                  style={{ border: 0, borderRadius: "8px" }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
             </div>
           </div>
         </div>

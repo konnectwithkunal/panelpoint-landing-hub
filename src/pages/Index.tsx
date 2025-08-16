@@ -9,6 +9,7 @@ import Clients from "@/components/Clients";
 import Gallery from "@/components/Gallery";
 import Locations from "@/components/Locations";
 import Testimonials from "@/components/Testimonials";
+import WhatsAppButton from "@/components/WhatsappButton";
 
 const Index = () => {
   return (
@@ -21,6 +22,7 @@ const Index = () => {
       <Locations />
       <Gallery />
       <Testimonials />
+      <WhatsAppButton/>
       <Contact />
       <Footer />
     </div>

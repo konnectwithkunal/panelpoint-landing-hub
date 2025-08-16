@@ -12,17 +12,17 @@ import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 
 
-import img1 from "@/assets/1.jpeg";
-import img2 from "@/assets/2.jpeg";
-import img3 from "@/assets/3.jpeg";
-import img4 from "@/assets/4.jpeg";
-import img5 from "@/assets/5.jpeg";
-import img6 from "@/assets/6.jpeg";
-import img7 from "@/assets/7.jpeg";
-import img8 from "@/assets/8.jpeg";
-import img9 from "@/assets/9.jpeg";
+
+
+;
+
+
+
+
+
+
 import img10 from "@/assets/10.jpeg";
-import img11 from "@/assets/11.jpeg";
+
 import img12 from "@/assets/12.jpeg";
 import img13 from "@/assets/13.jpeg";
 import img14 from "@/assets/14.jpeg";
@@ -39,8 +39,8 @@ import img24 from "@/assets/24.jpeg";
 import img25 from "@/assets/25.jpeg";
 import img26 from "@/assets/26.jpeg";
 import img27 from "@/assets/27.jpeg";
-import img28 from "@/assets/28.jpeg";
-import img29 from "@/assets/29.jpeg";
+
+
 import img30 from "@/assets/30.jpeg";
 import img31 from "@/assets/31.jpeg";
 import img32 from "@/assets/32.jpeg";
@@ -53,7 +53,7 @@ import img36 from "@/assets/36.jpeg";
 type ImageSource = string;
 
 const Gallery: FC = () => {
-  const images: ImageSource[] = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23, img24, img25, img26, img27, img28, img29, img30, img31, img32, img33, img34, img35, img36];
+  const images: ImageSource[] = [ img10, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23, img24, img25, img26, img27, img30, img31, img32, img33, img34, img35, img36];
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 

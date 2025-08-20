@@ -28,7 +28,7 @@ const About = () => {
                 About <span className="text-[#FB923C]">JP Shine Electricals</span>
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Established in 2011, JP Electrical & Controls is a trusted cable tray manufacturer, cable tray supplier, and exporter specializing in high-quality cable management and electrical solutions. Recognized as a leading cable tray manufacturer in Delhi NCR, we offer a wide product portfolio that includes perforated GI cable trays, powder coated cable trays, cable ladder raceways, compartment raceways, and other advanced solutions.
+                Established in 2011, JP SHINE ELECTRICAL AND CONTROLS PVT LTD is a trusted cable tray manufacturer, cable tray supplier, and exporter specializing in high-quality cable management and electrical solutions. Recognized as a leading cable tray manufacturer in Delhi NCR, we offer a wide product portfolio that includes perforated GI cable trays, powder coated cable trays, cable ladder raceways, compartment raceways, and other advanced solutions.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 We pride ourselves on delivering durable, corrosion-resistant products that meet stringent industry standards. Designed for easy installation, superior performance, and long-term reliability, our solutions are ideal for various industrial and commercial applications.

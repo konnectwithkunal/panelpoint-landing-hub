@@ -1,4 +1,9 @@
-import { useState } from "react";
+// src/components/Products.tsx (or wherever you keep it)
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -7,8 +12,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+
 import { Phone, ArrowRight, X } from "lucide-react";
-import perforated from "@/assets/perforated-tray.jpg";
+
+import raceway from "@/assets/Raceway.jpg";
 import hotDipLadder from "@/assets/hot-dip-ladder.jpg";
 import powderLadder from "@/assets/powder-ladder.avif";
 import powderCoatedCable from "@/assets/powder-coated-cable.jpg";
@@ -22,33 +32,16 @@ import giRaceway from "@/assets/gi-raceway.jpg";
 import walkway from "@/assets/walkway.jpg";
 import cable from "@/assets/cable.jpg";
 
+type Product = {
+  title: string;
+  description: string;
+  image: string;
+  properties: { name: string; value: string }[];
+  specifications: string[];
+  details: string;
+};
 
-const Products = () => {
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-
-  // Default mode for each product is "specifications"
-  const [viewMode, setViewMode] = useState({});
-
-  const handleFormChange = (e) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted:", { product: selectedProduct.title, ...formData });
-    setFormData({ name: "", email: "", message: "" });
-    setSelectedProduct(null);
-  };
-
-  const toggleViewMode = (index) => {
-    setViewMode((prev) => ({
-      ...prev,
-      [index]: prev[index] === "properties" ? "specifications" : "properties",
-    }));
-  };
-
-  const products = [
+const products = [
     {
       title: "Cable Tray",
       description: "Robust support system for organizing and routing electrical cables in industrial and commercial environments.",
@@ -71,7 +64,7 @@ const Products = () => {
       details: "Manufactured with MS, GI, SS, or Aluminium for strength and corrosion resistance. Available in multiple widths, heights, and finishes. Quick, modular installation and low maintenance."
     },
     {
-      title: "Walkway Cable Tray",
+      title: "Walkway",
       description: "Non-slip, durable walkway planks/platforms for safe rooftop and plant access.",
       image: walkway,
       properties: [
@@ -92,16 +85,16 @@ const Products = () => {
       details: "Constructed from hot-dip galvanized steel or MS sheet for outstanding durability. Lightweight but strong—easy to move and install. Resistant to moisture, warping, and splintering; long service life."
     },
     {
-      title: "GI Raceway",
+      title: "Raceway",
       description: "Enclosed trunking system that protects and neatly routes wiring and cables.",
-      image: giRaceway,
+      image: raceway,
       properties: [
-        { name: "Width", value: "50-600mm" },
-        { name: "Height", value: "25mm-150mm" },
-        { name: "Thickness", value: "1mm-3mm" },
-        { name: "Length", value: "2500mm" },
-        { name: "Finish", value: "Powder Coated, Pre-Galvanized, Hot Dip Galvanized, Electro Plated" },
-        { name: "Material", value: "MS, GI" }
+        { name: "Width", value: "50-1200mm" },
+        { name: "Height", value: "25mm-200mm" },
+        { name: "Thickness", value: "1mm-4mm" },
+        { name: "Length", value: "2500mm-3000mm" },
+        { name: "Finish", value: "Painted, Power Coated, Hot Dip Galvanized, Pre-Galvanized, electro Plated" },
+        { name: "Material", value: "	MS, GI, SS, Aluminium" }
       ],
       specifications: [
         "Supports concealed installations",
@@ -154,27 +147,29 @@ const Products = () => {
       ],
       details: "Ladder structure supports heavy and medium-duty installations. Available in a wide range of sizes."
     },
+    
     {
-      title: "Hot Dip Galvanized Perforated Cable Tray",
-      description: "Steel tray immersed in molten zinc for unmatched corrosion resistance.",
-      image: hotDip,
+      title: "GI Raceway",
+      description: "Enclosed trunking system that protects and neatly routes wiring and cables.",
+      image: giRaceway,
       properties: [
-        { name: "Width", value: "50-1000mm" },
-        { name: "Height", value: "25mm-100mm" },
+        { name: "Width", value: "50-600mm" },
+        { name: "Height", value: "25mm-150mm" },
         { name: "Thickness", value: "1mm-3mm" },
-        { name: "Length", value: "2500mm-3000mm" },
-        { name: "Finish", value: "Hot Dip Galvanized" },
+        { name: "Length", value: "2500mm" },
+        { name: "Finish", value: "Powder Coated, Pre-Galvanized, Hot Dip Galvanized, Electro Plated" },
         { name: "Material", value: "MS, GI" }
       ],
       specifications: [
-        "Excellent for outdoor & marine use",
-        "Long-term structural integrity",
-        "Perforated for better airflow",
-        "Custom sizes available",
-        "Low maintenance"
+        "Supports concealed installations",
+        "Powder coated, galvanized, or electro-plated",
+        "Ideal for power & data cables",
+        "Customizable with accessories",
+        "Durable steel construction"
       ],
-      details: "Maintains structural integrity in harsh environments."
+      details: "Supports concealed installations in offices, plants, and data centers. Ideal for both power and data cables."
     },
+    
     {
       title: "GI Perforated Cable Tray",
       description: "Galvanized steel tray with precision perforations for excellent ventilation.",
@@ -281,6 +276,27 @@ const Products = () => {
       details: "Combines airflow with superior durability and aesthetics."
     },
     {
+      title: "Hot Dip Perforated Cable Tray",
+      description: "Steel tray immersed in molten zinc for unmatched corrosion resistance.",
+      image: hotDip,
+      properties: [
+        { name: "Width", value: "50-1000mm" },
+        { name: "Height", value: "25mm-100mm" },
+        { name: "Thickness", value: "1mm-3mm" },
+        { name: "Length", value: "2500mm-3000mm" },
+        { name: "Finish", value: "Hot Dip Galvanized" },
+        { name: "Material", value: "MS, GI" }
+      ],
+      specifications: [
+        "Excellent for outdoor & marine use",
+        "Long-term structural integrity",
+        "Perforated for better airflow",
+        "Custom sizes available",
+        "Low maintenance"
+      ],
+      details: "Maintains structural integrity in harsh environments."
+    },
+    {
       title: "Hot Dip Ladder Cable Tray",
       description: "Ladder tray protected with a uniform hot dip galvanized coating.",
       image: hotDipLadder,
@@ -304,22 +320,113 @@ const Products = () => {
   ];
 
 
+//
+// Form validation schema (Zod)
+//
+const productInquirySchema = z.object({
+  name: z.string().min(1, "First name is required"),
+  email: z.string().email("Please enter a valid email"),
+  phone: z
+    .string()
+    .min(10, "Phone number must be 10 digits without +91")
+    .max(10, "Phone number must be 10 digits without +91")
+    .regex(/^[0-9+ -]+$/, "Phone must contain digits, spaces, + or - only"),
+  productName: z.string().min(1),
+  message: z.string().min(1, "Message is required"),
+  
+});
+type InquiryFormData = z.infer<typeof productInquirySchema>;
+
+const Products = () => {
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [viewMode, setViewMode] = useState<Record<number, "specifications" | "properties">>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // react-hook-form setup
+  const {
+    register,
+    handleSubmit,
+    reset,
+    setValue,
+    formState: { errors },
+  } = useForm<InquiryFormData>({
+    resolver: zodResolver(productInquirySchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      productName: "",
+      message: "",
+    },
+  });
+
+  // Whenever selectedProduct changes, set productName default in form
+  useEffect(() => {
+    setValue("productName", selectedProduct?.title ?? "");
+  }, [selectedProduct, setValue]);
+
+  const toggleViewMode = (index: number) =>
+    setViewMode((prev) => ({
+      ...prev,
+      [index]: prev[index] === "properties" ? "specifications" : "properties",
+    }));
+
+  // inside your Products component file (update onSubmit)
+const onSubmit = async (data: InquiryFormData) => {
+  setIsSubmitting(true);
+
+  // prefer VITE_API_URL in .env (for local dev set VITE_API_URL=http://localhost:5000)
+  const base = import.meta.env.VITE_API_URL
+    ? import.meta.env.VITE_API_URL.replace(/\/$/, "")
+    : "http://localhost:5000";
+
+  const endpoint = `${base}/send`;
+
+  try {
+    console.log("Sending inquiry payload:", { endpoint, data });
+
+    const res = await fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    const body = await res.json().catch(() => ({}));
+
+    if (!res.ok) {
+      console.error("Server returned error:", res.status, body);
+      throw new Error(body.message || `Server error: ${res.status}`);
+    }
+
+    alert("Inquiry sent! We'll get back to you soon.");
+    reset();
+    setSelectedProduct(null);
+  } catch (err: any) {
+    console.error("Send error:", err);
+    alert(`Failed to send inquiry: ${err.message || "Unknown error"}`);
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
+
   return (
-    <section id="products" className="py-20  relative">
+    <section id="products" className="py-20 relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-foreground mb-4">
             Our <span className="text-[#FB923C]">Products</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            High-quality cable trays and raceways designed for reliable cable
-            management and fast installation
+            High-quality cable trays and raceways designed for reliable cable management and fast
+            installation
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
           {products.map((product, index) => {
             const mode = viewMode[index] || "specifications";
+
             const content =
               mode === "properties" ? (
                 <table className="w-full text-sm border border-gray-200 mb-4">
@@ -354,7 +461,7 @@ const Products = () => {
                     alt={product.title}
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                   <span className="absolute top-3 left-3 bg-[#EF7F1A] text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
                     Featured
                   </span>
@@ -365,7 +472,6 @@ const Products = () => {
                   <CardDescription className="text-sm text-gray-600">{product.description}</CardDescription>
                 </CardHeader>
 
-                {/* Push buttons to the bottom */}
                 <CardContent className="flex flex-col flex-1">
                   {content}
 
@@ -376,7 +482,6 @@ const Products = () => {
                     {mode === "properties" ? "See Specifications" : "See Properties"}
                   </button>
 
-
                   <div className="mt-auto flex gap-2">
                     <Button
                       variant="outline"
@@ -386,6 +491,7 @@ const Products = () => {
                     >
                       Learn More
                     </Button>
+
                     <Button
                       asChild
                       size="sm"
@@ -398,12 +504,12 @@ const Products = () => {
                   </div>
                 </CardContent>
               </Card>
-
             );
           })}
         </div>
       </div>
 
+      {/* Modal with form */}
       {selectedProduct && (
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-lg max-w-lg w-full shadow-xl relative p-6">
@@ -420,81 +526,66 @@ const Products = () => {
               className="w-full h-40 object-cover rounded-lg mb-4"
             />
             <h3 className="text-2xl font-bold mb-2">{selectedProduct.title}</h3>
-            <p className="text-muted-foreground mb-4">
-              {selectedProduct.details}
-            </p>
+            <p className="text-muted-foreground mb-4">{selectedProduct.details}</p>
 
-            <form onSubmit={handleSubmit} className="space-y-3">
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleFormChange}
-                placeholder="Your Name"
-                required
-                className="w-full border p-2 rounded"
-              />
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleFormChange}
-                placeholder="Your Email"
-                required
-                className="w-full border p-2 rounded"
-              />
-              <input
-                type="email"
-                name="Phone"
-                value={formData.email}
-                onChange={handleFormChange}
-                placeholder="Your Phone No."
-                required
-                className="w-full border p-2 rounded"
-              />
-              <input
-                type="email"
-                name="Product Name"
-                value={formData.email}
-                onChange={handleFormChange}
-                placeholder="Product Name"
-                required
-                className="w-full border p-2 rounded"
-              />
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleFormChange}
-                placeholder="Your Message"
-                rows="3"
-                required
-                className="w-full border p-2 rounded"
-              ></textarea>
-              <div className="flex gap-3">
-  {/* Send Inquiry button */}
-  <Button type="submit" className="flex-1 bg-[#FB923C] hover:bg-[#f97316]">
-    Send Inquiry
-  </Button>
+           <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
+  <div className="grid md:grid-cols-2 gap-3">
+    <div>
+      <Label>Name</Label>
+      <Input {...register("name")} className="w-full" />
+      {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
+    </div>
 
-  {/* WhatsApp button */}
-  <a
-    href={`https://wa.me/91XXXXXXXXXX?text=Hello, I am interested in ${encodeURIComponent(selectedProduct.title)}`}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex-1 bg-green-500 hover:bg-green-600 text-white rounded-lg flex items-center justify-center gap-2 px-4 py-2"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className="w-5 h-5"
+    <div>
+      <Label>Phone</Label>
+      <Input {...register("phone")} className="w-full" />
+      {errors.phone && <p className="text-red-500 text-sm">{errors.phone.message}</p>}
+    </div>
+  </div>
+
+  <div className="grid md:grid-cols-2 gap-3">
+    <div>
+      <Label>Email</Label>
+      <Input {...register("email")} type="email" className="w-full" />
+      {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
+    </div>
+
+    <div>
+      <Label>Product</Label>
+      {/* Register productName and rely on setValue in useEffect to populate it */}
+      <Input {...register("productName")} readOnly className="w-full bg-gray-100" />
+      {errors.productName && <p className="text-red-500 text-sm">{errors.productName.message}</p>}
+    </div>
+  </div>
+
+  <div>
+    <Label>Message</Label>
+    <Textarea {...register("message")} className="w-full min-h-[100px]" />
+    {errors.message && <p className="text-red-500 text-sm">{errors.message.message}</p>}
+  </div>
+
+  <div className="flex gap-3">
+    <Button type="submit" className="flex-1 bg-[#FB923C]" disabled={isSubmitting}>
+      {isSubmitting ? "Sending..." : "Send Inquiry"}
+    </Button>
+
+    <a
+      className="flex-1 bg-green-500 hover:bg-green-600 text-white rounded-lg flex items-center justify-center gap-2 px-4 py-2"
+      href={`https://wa.me/917836870201?text=${encodeURIComponent(
+        `Hello, I am interested in ${selectedProduct?.title ?? ""}`
+      )}`}
+      target="_blank"
+      rel="noopener noreferrer"
     >
-      <path d="M12 2C6.48 2 2 6.19 2 11.24c0 2.07.64 3.98 1.74 5.57L2 22l5.41-1.7c1.53.84 3.29 1.31 5.18 1.31 5.52 0 10-4.19 10-9.24S17.52 2 12 2zm0 16.54c-1.57 0-3.03-.45-4.26-1.23l-.3-.18-3.21.99 1.05-3.12-.2-.32A7.15 7.15 0 0 1 4.84 11c0-3.91 3.41-7.09 7.6-7.09s7.6 3.18 7.6 7.09-3.41 7.09-7.6 7.09z" />
-    </svg>
-    WhatsApp
-  </a>
-</div>
-            </form>
+      {/* WhatsApp icon */}
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+        <path d="M12 2C6.48 2 2 6.19 2 11.24c0 2.07.64 3.98 1.74 5.57L2 22l5.41-1.7c1.53.84 3.29 1.31 5.18 1.31 5.52 0 10-4.19 10-9.24S17.52 2 12 2zm0 16.54c-1.57 0-3.03-.45-4.26-1.23l-.3-.18-3.21.99 1.05-3.12-.2-.32A7.15 7.15 0 0 1 4.84 11c0-3.91 3.41-7.09 7.6-7.09s7.6 3.18 7.6 7.09-3.41 7.09-7.6 7.09z" />
+      </svg>
+      WhatsApp
+    </a>
+  </div>
+</form>
+
           </div>
         </div>
       )}

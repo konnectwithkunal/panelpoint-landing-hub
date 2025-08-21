@@ -37,14 +37,14 @@ const Footer = () => {
 
           {/* Products */}
           <div className="space-y-6">
-            <h4 className="text-lg font-semibold">Products</h4>
+            <h4 className="text-lg font-semibold">Popular Products</h4>
             <ul className="space-y-3">
               <li>
                 <a
                   href="#products"
                   className="hover:text-accent transition-colors"
                 >
-                  Perforated Cable Tray
+                  Cable Tray
                 </a>
               </li>
               <li>
@@ -52,7 +52,7 @@ const Footer = () => {
                   href="#products"
                   className="hover:text-accent transition-colors"
                 >
-                  Ladder Cable Tray
+                  Walkway Cable Tray
                 </a>
               </li>
               <li>
@@ -60,7 +60,7 @@ const Footer = () => {
                   href="#products"
                   className="hover:text-accent transition-colors"
                 >
-                  Wire Mesh Cable Tray
+                 GI Raceway
                 </a>
               </li>
               <li>
@@ -68,7 +68,7 @@ const Footer = () => {
                   href="#products"
                   className="hover:text-accent transition-colors"
                 >
-                  Cable Raceways
+                 Ladder Cable Tray
                 </a>
               </li>
               <li>
@@ -76,7 +76,15 @@ const Footer = () => {
                   href="#products"
                   className="hover:text-accent transition-colors"
                 >
-                  Accessories
+                GI Ladder Cable Tray
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#products"
+                  className="hover:text-accent transition-colors"
+                >
+                GI Perforated Cable Tray
                 </a>
               </li>
             </ul>
@@ -84,31 +92,36 @@ const Footer = () => {
 
           {/* Services */}
           <div className="space-y-6">
-            <h4 className="text-lg font-semibold">Services</h4>
+            <h4 className="text-lg font-semibold">Products</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
-                  Custom Design
+                <a href="#products" className="hover:text-accent transition-colors">
+                 Powder Coated Raceway
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
-                  Installation
+                <a href="#products" className="hover:text-accent transition-colors">
+                  Compartment Raceway
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
-                  Maintenance
+                <a href="#products" className="hover:text-accent transition-colors">
+                 Powder Coated Perforated Cable Tray
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
-                  Consultation
+                <a href="#products" className="hover:text-accent transition-colors">
+                  Powder Coated Ladder Cable Tray
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
-                  Technical Support
+                <a href="#products" className="hover:text-accent transition-colors">
+                  Hot Dip Perforated Cable Tray
+                </a>
+              </li>
+              <li>
+                <a href="#products" className="hover:text-accent transition-colors">
+                 Hot Dip Ladder Cable Tray
                 </a>
               </li>
             </ul>
@@ -134,16 +147,20 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-300 mt-10 pt-6 text-center text-sm text-gray-600">
           <p>
-            &copy; 2024 JP Shine Electricals. All rights reserved. |{" "}
-            <a href="#" className="hover:text-accent">
-              Privacy Policy
-            </a>{" "}
-            |{" "}
-            <a href="#" className="hover:text-accent">
-              Terms of Service
-            </a>
+            &copy; 2024 JP Shine Electricals. All rights reserved. {" "}
+            
           </p>
-          <p className="mt-2">Website is Designed and built by WebAlchemy</p>
+          <p className="mt-2">
+  Website is Designed and built by{" "}
+  <a 
+    href="https://webalchemy.co.in" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="text-[#045AA2] hover:underline"
+  >
+    WebAlchemy
+  </a>
+</p>
         </div>
       </div>
     </footer>

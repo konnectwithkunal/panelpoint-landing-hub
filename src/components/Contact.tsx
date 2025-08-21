@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -29,7 +29,7 @@ type ContactFormData = z.infer<typeof contactSchema>;
 /* -------------------- Component -------------------- */
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-
+const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -49,9 +49,11 @@ const Contact = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
+
     const base = import.meta.env.VITE_API_URL
       ? import.meta.env.VITE_API_URL.replace(/\/$/, "")
-      : "http://localhost:5000";
+      : "https://panelpoint-landing-hub.onrender.com"; // fallback
+
     const endpoint = `${base}/send`;
 
     try {
@@ -62,29 +64,29 @@ const Contact = () => {
           name: data.name,
           email: data.email,
           phone: data.phone,
-          subject: data.subject,
-          productName: data.productName,
           message: data.message,
+          productName: data.subject || "", // reuse subject as productName (optional)
         }),
       });
 
       const body = await res.json().catch(() => ({}));
       if (!res.ok) {
-        console.error("Send failed:", res.status, body);
-        throw new Error(body.message || `Server error ${res.status}`);
+        console.error("Server error:", res.status, body);
+        throw new Error(body.message || `Server returned ${res.status}`);
       }
 
-      // success
-      alert("Message sent! We'll get back to you soon.");
+      // navigate to thank-you page with state
+      navigate("/thank-you", { state: { name: data.name, from: "contact" } });
+
+      // reset form
       reset();
     } catch (err: any) {
-      console.error("Submit error:", err);
-      alert(`Failed to send message: ${err.message || "Unknown error"}`);
+      console.error("Send error:", err);
+      alert(`Failed to send inquiry: ${err?.message || "Network error"}`);
     } finally {
       setIsSubmitting(false);
     }
   };
-
   return (
     <section id="contact" className="py-20 bg-section-bg">
       <div className="container mx-auto px-4">

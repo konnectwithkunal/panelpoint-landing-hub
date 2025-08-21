@@ -23,9 +23,8 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-[#EFF6FF] shadow-md backdrop-blur" : "bg-transparent"
-      } text-primary-foreground`}
+      className={`fixed top-0 w-full z-50 transition-all duration-300  bg-[#EFF6FF] shadow-md backdrop-blur
+    text-primary-foreground`}
       role="banner"
     >
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
@@ -53,9 +52,7 @@ const Header = () => {
             <a
               key={item.name}
               href={item.link}
-              className={`${
-                isScrolled ? "text-black" : "text-white"
-              } hover:text-[#F97316] text-[17px] transition-colors duration-200`}
+              className={` text-black hover:text-[#F97316] text-[17px] transition-colors duration-200`}
             >
               {item.name}
             </a>
@@ -67,14 +64,14 @@ const Header = () => {
           <div className="hidden lg:flex items-center space-x-4 text-lg">
             <a
               href="tel:+917836870201"
-              className={`${isScrolled? "text-black" : "text-white" } p-2 rounded-full hover:bg-primary/20 transition-colors`}
+              className={`text-black p-2 rounded-full hover:bg-primary/20 transition-colors`}
               aria-label="Call us"
             >
               <Phone className="h-5 w-5" />
             </a>
             <a
               href="mailto:sales@jpelectricalcontrols.com"
-              className={`${isScrolled? "text-black" : "text-white" } p-2 rounded-full hover:bg-primary/20 transition-colors`}
+              className={`text-black  p-2 rounded-full hover:bg-primary/20 transition-colors`}
               aria-label="Email us"
             >
               <Mail className="h-5 w-5" />
@@ -94,9 +91,8 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className={`md:hidden p-2 ${
-            menuOpen || isScrolled ? "text-black" : "text-white"
-          } rounded-md hover:bg-primary/20`}
+          className={`md:hidden p-2 text-black
+           rounded-md hover:bg-primary/20`}
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? <X size={28} /> : <Menu size={28} />}

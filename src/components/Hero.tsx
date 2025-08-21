@@ -17,15 +17,15 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/60"></div>
 
       {/* Content */}
-      <div className="relative container mx-auto px-4 z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative container   z-10">
+        <div className="grid lg:grid-cols-1 gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 py-2 md:py-10 pl-5 pr-5 md:pl-10 mt-14 md:mt-0 md:pr-96 bg-[#045AA2] bg-opacity-40 border-2 border-[#045AA2]  rounded-lg">
             <div className="space-y-4">
               <h2 className="text-5xl lg:text-6xl font-bold leading-tight">
                 Premium <span className="text-orange-400">Cable Trays</span> & Raceways
               </h2>
-              <p className="text-xl text-white/90 leading-relaxed">
+              <p className="text-xl text-white/90 leading-relaxed md:pr-40">
                 Manufacturer of perforated, ladder and wire mesh cable trays with GI/HDG and
                 powder-coated finishes. Engineered for durability, quick installs and clean cable management.
               </p>
@@ -73,18 +73,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Social Media Icons - Bottom Left */}
-      <div className="absolute bottom-12 left-10 md:left-20 flex space-x-4 z-20">
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-orange-400 lg:text-white hover:text-orange-400 transition-colors">
-          <Facebook className="h-6 w-6" />
-        </a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-orange-400 lg:text-white hover:text-orange-400 transition-colors">
-          <Instagram className="h-6 w-6" />
-        </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-orange-400 lg:text-white hover:text-orange-400 transition-colors">
-          <Linkedin className="h-6 w-6" />
-        </a>
-      </div>
+     
     </section>
   );
 };

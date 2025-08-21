@@ -367,7 +367,7 @@ const Products = () => {
   try {
     console.log("Sending inquiry payload:", { endpoint, data });
 
-    const res = await fetch("https://panelpoint-landing-hub.onrender.com/send", {
+    const res = await fetch("https://panelpoint-landing-hub-1.onrender.com", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

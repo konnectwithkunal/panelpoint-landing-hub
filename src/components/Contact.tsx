@@ -52,7 +52,7 @@ const navigate = useNavigate();
 
     const base = import.meta.env.VITE_API_URL
       ? import.meta.env.VITE_API_URL.replace(/\/$/, "")
-      : "https://panelpoint-landing-hub.onrender.com"; // fallback
+      : "https://panelpoint-landing-hub-1.onrender.com"; // fallback
 
     const endpoint = `${base}/send`;
 

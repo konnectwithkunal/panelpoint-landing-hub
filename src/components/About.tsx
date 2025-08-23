@@ -35,7 +35,7 @@ const About = () => {
               </p>
             </div>
             <Button className="bg-[#FB923C]" variant="default" size="lg">
-             <a href="#contact">Get in Touch</a>
+             <a href="#contact">Contact Us Now</a>
             </Button>
           </div>
 

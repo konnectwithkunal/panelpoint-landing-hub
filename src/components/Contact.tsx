@@ -110,8 +110,8 @@ const navigate = useNavigate();
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="name">Full Name</Label>
-                      <Input id="name" {...register("name")} placeholder="Your full name" />
+                      <Label htmlFor="name">Name</Label>
+                      <Input id="name" {...register("name")} placeholder="Name" />
                       {errors.name && <p className="text-sm text-red-500 mt-1">{errors.name.message}</p>}
                     </div>
                     <div className="space-y-2">
@@ -124,7 +124,7 @@ const navigate = useNavigate();
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone Number</Label>
-                      <Input id="phone" {...register("phone")} placeholder="+91 98765 43210" />
+                      <Input id="phone" {...register("phone")} placeholder="+91 " />
                       {errors.phone && <p className="text-sm text-red-500 mt-1">{errors.phone.message}</p>}
                     </div>
                     <div className="space-y-2">

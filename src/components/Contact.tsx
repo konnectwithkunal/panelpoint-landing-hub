@@ -163,7 +163,7 @@ const navigate = useNavigate();
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-lg font-semibold">+91-7065005544</p>
+                <p className="text-lg font-semibold">+91-7836870201</p>
                 <p className="text-muted-foreground">Mon-Sat 10:00 AM - 7:00 PM</p>
               </CardContent>
             </Card>

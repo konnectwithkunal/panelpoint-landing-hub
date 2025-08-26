@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Users, Factory, Clock, TrendingUp } from "lucide-react";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
+import { ArrowRight } from "lucide-react";
 
 const About = () => {
   const stats = [
@@ -34,9 +35,17 @@ const About = () => {
                 We pride ourselves on delivering durable, corrosion-resistant products that meet stringent industry standards. Designed for easy installation, superior performance, and long-term reliability, our solutions are supported by a robust manufacturing facility and a skilled team of engineers, making us a reliable raceway manufacturer and cable ladder supplier committed to providing cost-effective, customized solutions for diverse industrial and commercial applications.
               </p>
             </div>
-            <Button className="bg-[#FB923C]" variant="default" size="lg" onClick={() => (window.location.href = "tel:+917836870201")}  >
-             Contact Us Now
-            </Button>
+             <Button
+                asChild
+                variant="secondary"
+                size="lg"
+                className="group bg-orange-500 hover:bg-orange-600 border-none"
+              >
+                <a href="tel:+917836870201">
+                  Call Now
+                  <ArrowRight className="h-5 w-5 inline-block ml-2 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </Button>
           </div>
 
           {/* Right Stats */}

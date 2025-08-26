@@ -83,9 +83,10 @@ const Header = () => {
           <Button
             variant="default"
             size="sm"
-            onClick={() => (window.location.href = "tel:+917836870201")}
+            
           >
-            Call Now
+          <a href="tel:+917836870201">
+        Call Now</a>
           </Button>
         </div>
 
@@ -151,9 +152,9 @@ const Header = () => {
       <Button
         variant="default"
         size="lg"
-        onClick={() => (window.location.href = "tel:+917836870201")}
-      >
-        Call Now
+       
+      > <a href="tel:+917836870201">
+        Call Now</a>
       </Button>
     </div>
   </div>

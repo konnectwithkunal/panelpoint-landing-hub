@@ -484,7 +484,7 @@ const Products = () => {
                       className="border-[#045AA2] text-[#045AA2] hover:bg-[#045AA2] hover:text-white"
                       onClick={() => setSelectedProduct(product)}
                     >
-                      Learn More
+                      Get Quote
                     </Button>
 
                     <Button
@@ -492,7 +492,7 @@ const Products = () => {
                       size="sm"
                       className="flex-1 flex items-center bg-[#EF7F1A] hover:bg-[#045AA2] text-white"
                     >
-                      <a href="tel:+917836870201">
+                      <a href="tel:+917065005544">
                         <Phone className="h-4 w-4 mr-1" /> Call
                       </a>
                     </Button>
@@ -567,7 +567,7 @@ const Products = () => {
 
                 <a
                   className="flex-1 bg-green-500 hover:bg-green-600 text-white rounded-lg flex items-center justify-center gap-2 px-4 py-2"
-                  href={`https://wa.me/917836870201?text=${encodeURIComponent(
+                  href={`https://wa.me/917065005544?text=${encodeURIComponent(
                     `Hello, I am interested in ${selectedProduct?.title ?? ""}`
                   )}`}
                   target="_blank"

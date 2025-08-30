@@ -63,7 +63,7 @@ const Header = () => {
         <div className="hidden lg:flex items-center space-x-4 text-sm">
           <div className="hidden lg:flex items-center space-x-4 text-lg">
             <a
-              href="tel:+917836870201"
+              href="tel:+917065005544"
               className={`text-black p-2 rounded-full hover:bg-primary/20 transition-colors`}
               aria-label="Call us"
             >
@@ -85,7 +85,7 @@ const Header = () => {
             size="sm"
             
           >
-          <a href="tel:+917836870201">
+          <a href="tel:+917065005544">
         Call Now</a>
           </Button>
         </div>
@@ -153,7 +153,7 @@ const Header = () => {
         variant="default"
         size="lg"
        
-      > <a href="tel:+917836870201">
+      > <a href="tel:+917065005544">
         Call Now</a>
       </Button>
     </div>

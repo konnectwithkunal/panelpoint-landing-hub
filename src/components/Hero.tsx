@@ -55,7 +55,7 @@ of Cable Trays and Raceways in India
                 size="lg"
                 className="group bg-orange-500 hover:bg-orange-600 border-none"
               >
-                <a href="tel:+917836870201">
+                <a href="tel:+917065005544">
                   Call Now
                   <ArrowRight className="h-5 w-5 inline-block ml-2 group-hover:translate-x-1 transition-transform" />
                 </a>

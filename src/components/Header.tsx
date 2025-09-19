@@ -43,8 +43,7 @@ const Header = () => {
             { name: "Home", link: "#home" },
             { name: "About", link: "#about" },
             { name: "Products", link: "#products" },
-            
-            
+            { name: "Earthing", link: "/earthing" },
             { name: "Gallery", link: "#gallery" },
             { name: "Locations", link: "#locations" },
             { name: "Contact", link: "#contact" },
@@ -127,6 +126,7 @@ const Header = () => {
         { name: "Home", link: "#home" },
         { name: "About", link: "#about" },
         { name: "Products", link: "#products" },
+        { name: "Earthing", link: "/earthing" },
         { name: "Why Us", link: "#why-us" },
         { name: "Clients", link: "#clients" },
         { name: "Gallery", link: "#gallery" },

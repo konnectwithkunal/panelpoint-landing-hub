@@ -4,8 +4,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
+import NotFound from "./pages/NotFound"; 
 import ThankYou from "@/pages/ThankYou";
+import Earthing from "@/pages/Earthing";
 import ScrollToHash from "@/components/ScrollToHash";
 
 const queryClient = new QueryClient();
@@ -19,9 +20,10 @@ const App = () => (
       <ScrollToHash />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/earthing" element={<Earthing />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
           <Route path="/thank-you" element={<ThankYou />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

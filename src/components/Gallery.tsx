@@ -149,7 +149,7 @@ const Gallery: FC = () => {
         plugins={[Thumbnails]}
       />
 
-      <style jsx>{`
+      <style>{`
         .swiper-button-prev-custom,
         .swiper-button-next-custom {
           transition: opacity 0.3s;

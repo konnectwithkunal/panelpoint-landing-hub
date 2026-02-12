@@ -23,11 +23,11 @@ const Hero = () => {
           <div className="space-y-8 py-2 md:py-10 pl-5 pr-5 md:pl-10 mt-14 md:mt-0 md:pr-96 bg-[#000000] bg-opacity-40 border border-[#000000]  rounded-lg">
             <div className="space-y-4">
               <h2 className="text-3xl lg:text-5xl font-bold leading-tight">
-                Trusted Cable Tray  <span className="text-orange-400">Manufacturer & Leading Supplier </span> 
-of Cable Trays and Raceways in India
+                Trusted Cable Tray  <span className="text-orange-400">Manufacturer & Leading Supplier </span>
+                of Cable Trays and Raceways in India
               </h2>
               <p className="text-xl text-white/90 leading-relaxed md:pr-40">
-               Manufacturer of Perforated, Ladder, Gi Raceway, Hot Dip & Walkway Cable Trays with Powder-Coated Finishes. Engineered for Durability, Quick Installs, and Clean Cable Management.
+                Manufacturer of Perforated, Ladder, Gi Raceway, Hot Dip & Walkway Cable Trays with Powder-Coated Finishes. Engineered for Durability, Quick Installs, and Clean Cable Management.
               </p>
             </div>
 
@@ -55,18 +55,18 @@ of Cable Trays and Raceways in India
                 size="lg"
                 className="group bg-orange-500 hover:bg-orange-600 border-none"
               >
-                <a href="tel:+917065005544">
+                <a href="tel:+917428124360">
                   Call Now
                   <ArrowRight className="h-5 w-5 inline-block ml-2 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
-              
+
             </div>
           </div>
         </div>
       </div>
 
-     
+
     </section>
   );
 };

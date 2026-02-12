@@ -353,55 +353,55 @@ const Products = () => {
     }));
 
   // inside your Products component file (update onSubmit)
-  
+
   const onSubmit = async (data: InquiryFormData) => {
-  setIsSubmitting(true);
+    setIsSubmitting(true);
 
-  // prefer VITE_API_URL in .env (for local dev set VITE_API_URL=http://localhost:5000)
-  const base = import.meta.env.VITE_API_URL
-    ? import.meta.env.VITE_API_URL.replace(/\/$/, "")
-    : "http://localhost:5000";
+    // prefer VITE_API_URL in .env (for local dev set VITE_API_URL=http://localhost:5000)
+    const base = import.meta.env.VITE_API_URL
+      ? import.meta.env.VITE_API_URL.replace(/\/$/, "")
+      : "http://localhost:5000";
 
-  const endpoint = `${base}/send`;
+    const endpoint = `${base}/send`;
 
-  try {
-    console.log("Sending inquiry payload:", { endpoint, data });
+    try {
+      console.log("Sending inquiry payload:", { endpoint, data });
 
-    const res = await fetch("https://panelpoint-landing-hub-1.onrender.com/send", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
+      const res = await fetch("https://panelpoint-landing-hub-1.onrender.com/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
 
-    // try to parse response body (safely)
-    const body = await res.json().catch(() => ({}));
+      // try to parse response body (safely)
+      const body = await res.json().catch(() => ({}));
 
-    if (!res.ok) {
-      console.error("Server returned error:", res.status, body);
-      throw new Error(body.message || `Server error: ${res.status}`);
+      if (!res.ok) {
+        console.error("Server returned error:", res.status, body);
+        throw new Error(body.message || `Server error: ${res.status}`);
+      }
+
+      // success: navigate to thank-you page with state
+      navigate("/thank-you", {
+        state: {
+          name: data.name,
+          from: "contact",
+          // include productName if present so thank-you can show it
+          productName: data.productName || undefined,
+        },
+      });
+
+      // optional: notify user and reset form
+      // alert("Inquiry sent! We'll get back to you soon."); // you can keep or remove this
+      reset();
+      setSelectedProduct(null);
+    } catch (err: any) {
+      console.error("Send error:", err);
+      alert(`Failed to send inquiry: ${err.message || "Unknown error"}`);
+    } finally {
+      setIsSubmitting(false);
     }
-
-    // success: navigate to thank-you page with state
-    navigate("/thank-you", {
-      state: {
-        name: data.name,
-        from: "contact",
-        // include productName if present so thank-you can show it
-        productName: data.productName || undefined,
-      },
-    });
-
-    // optional: notify user and reset form
-    // alert("Inquiry sent! We'll get back to you soon."); // you can keep or remove this
-    reset();
-    setSelectedProduct(null);
-  } catch (err: any) {
-    console.error("Send error:", err);
-    alert(`Failed to send inquiry: ${err.message || "Unknown error"}`);
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+  };
 
 
 
@@ -492,7 +492,7 @@ const Products = () => {
                       size="sm"
                       className="flex-1 flex items-center bg-[#EF7F1A] hover:bg-[#045AA2] text-white"
                     >
-                      <a href="tel:+917065005544">
+                      <a href="tel:+917428124360">
                         <Phone className="h-4 w-4 mr-1" /> Call
                       </a>
                     </Button>
@@ -567,7 +567,7 @@ const Products = () => {
 
                 <a
                   className="flex-1 bg-green-500 hover:bg-green-600 text-white rounded-lg flex items-center justify-center gap-2 px-4 py-2"
-                  href={`https://wa.me/917065005544?text=${encodeURIComponent(
+                  href={`https://wa.me/917428124360?text=${encodeURIComponent(
                     `Hello, I am interested in ${selectedProduct?.title ?? ""}`
                   )}`}
                   target="_blank"

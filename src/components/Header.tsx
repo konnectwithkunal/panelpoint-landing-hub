@@ -62,7 +62,7 @@ const Header = () => {
         <div className="hidden lg:flex items-center space-x-4 text-sm">
           <div className="hidden lg:flex items-center space-x-4 text-lg">
             <a
-              href="tel:+917065005544"
+              href="tel:+917428124360"
               className={`text-black p-2 rounded-full hover:bg-primary/20 transition-colors`}
               aria-label="Call us"
             >
@@ -82,10 +82,10 @@ const Header = () => {
           <Button
             variant="default"
             size="sm"
-            
+
           >
-          <a href="tel:+917065005544">
-        Call Now</a>
+            <a href="tel:+917428124360">
+              Call Now</a>
           </Button>
         </div>
 
@@ -100,65 +100,65 @@ const Header = () => {
       </div>
 
       {/* Mobile Nav Menu */}
-{menuOpen && (
-  <div
-    className="fixed inset-0 bg-[#EFF6FF] z-50 flex flex-col"
-    style={{ height: "100vh", overflowY: "auto" }}
-  >
-    {/* Menu Header */}
-    <div className="flex items-center justify-between px-4 py-3 border-b border-gray-300 flex-shrink-0">
-      <img
-        src="/lovable-uploads/b81d8602-7c98-4af8-9cf2-79fde2bfc9b9.png"
-        alt="JP Shine Electricals logo"
-        className="h-10"
-      />
-      <button
-        onClick={() => setMenuOpen(false)}
-        className="p-2 rounded-md hover:bg-gray-200 text-black"
-      >
-        <X size={28} />
-      </button>
-    </div>
-
-    {/* Scrollable Menu Links */}
-    <div className="flex-1 overflow-y-auto p-6 space-y-6">
-      {[
-        { name: "Home", link: "#home" },
-        { name: "About", link: "#about" },
-        { name: "Products", link: "#products" },
-        { name: "Earthing", link: "/earthing" },
-        { name: "Why Us", link: "#why-us" },
-        { name: "Clients", link: "#clients" },
-        { name: "Gallery", link: "#gallery" },
-        { name: "Locations", link: "#locations" },
-        { name: "Contact", link: "#contact" },
-      ].map((item) => (
-        <a
-          key={item.name}
-          href={item.link}
-          onClick={() => setMenuOpen(false)}
-          className="block text-lg font-medium text-gray-900 hover:text-accent transition-colors"
+      {menuOpen && (
+        <div
+          className="fixed inset-0 bg-[#EFF6FF] z-50 flex flex-col"
+          style={{ height: "100vh", overflowY: "auto" }}
         >
-          {item.name}
-        </a>
-      ))}
-    </div>
+          {/* Menu Header */}
+          <div className="flex items-center justify-between px-4 py-3 border-b border-gray-300 flex-shrink-0">
+            <img
+              src="/lovable-uploads/b81d8602-7c98-4af8-9cf2-79fde2bfc9b9.png"
+              alt="JP Shine Electricals logo"
+              className="h-10"
+            />
+            <button
+              onClick={() => setMenuOpen(false)}
+              className="p-2 rounded-md hover:bg-gray-200 text-black"
+            >
+              <X size={28} />
+            </button>
+          </div>
 
-    {/* Bottom Buttons */}
-    <div className="p-6 border-t border-gray-300 flex flex-col gap-3 flex-shrink-0">
-      <Button asChild variant="accent" size="lg">
-        <a href="#contact">Get Quote</a>
-      </Button>
-      <Button
-        variant="default"
-        size="lg"
-       
-      > <a href="tel:+917065005544">
-        Call Now</a>
-      </Button>
-    </div>
-  </div>
-)}
+          {/* Scrollable Menu Links */}
+          <div className="flex-1 overflow-y-auto p-6 space-y-6">
+            {[
+              { name: "Home", link: "#home" },
+              { name: "About", link: "#about" },
+              { name: "Products", link: "#products" },
+              { name: "Earthing", link: "/earthing" },
+              { name: "Why Us", link: "#why-us" },
+              { name: "Clients", link: "#clients" },
+              { name: "Gallery", link: "#gallery" },
+              { name: "Locations", link: "#locations" },
+              { name: "Contact", link: "#contact" },
+            ].map((item) => (
+              <a
+                key={item.name}
+                href={item.link}
+                onClick={() => setMenuOpen(false)}
+                className="block text-lg font-medium text-gray-900 hover:text-accent transition-colors"
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+
+          {/* Bottom Buttons */}
+          <div className="p-6 border-t border-gray-300 flex flex-col gap-3 flex-shrink-0">
+            <Button asChild variant="accent" size="lg">
+              <a href="#contact">Get Quote</a>
+            </Button>
+            <Button
+              variant="default"
+              size="lg"
+
+            > <a href="tel:+917428124360">
+                Call Now</a>
+            </Button>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

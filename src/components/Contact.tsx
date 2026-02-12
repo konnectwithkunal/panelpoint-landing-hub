@@ -29,7 +29,7 @@ type ContactFormData = z.infer<typeof contactSchema>;
 /* -------------------- Component -------------------- */
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-const navigate = useNavigate();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -163,7 +163,7 @@ const navigate = useNavigate();
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-lg font-semibold">+91-7065005544</p>
+                <p className="text-lg font-semibold">+91-7428124360</p>
                 <p className="text-muted-foreground">Mon-Sat 10:00 AM - 7:00 PM</p>
               </CardContent>
             </Card>

@@ -133,9 +133,9 @@ const Earthing = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
-              <a href="tel:+917065005544" className="flex items-center">
+              <a href="tel:+917428124360" className="flex items-center">
                 <Phone className="mr-2 h-5 w-5" />
-                Call +91-7065005544
+                Call +91-7428124360
               </a>
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-gray-900">
@@ -263,7 +263,7 @@ const Earthing = () => {
 
                     <div className="flex gap-4 mt-6">
                       <Button className="bg-orange-500 hover:bg-orange-600 text-white">
-                        <a href="tel:+917065005544" className="flex items-center">
+                        <a href="tel:+917428124360" className="flex items-center">
                           <Phone className="mr-2 h-4 w-4" />
                           Get Quote
                         </a>
@@ -273,7 +273,7 @@ const Earthing = () => {
                         className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
                       >
                         <a 
-                          href={`https://wa.me/917065005544?text=${encodeURIComponent(`Hello, I am interested in ${product.title}`)}`}
+                          href={`https://wa.me/917428124360?text=${encodeURIComponent(`Hello, I am interested in ${product.title}`)}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-center"
@@ -328,9 +328,9 @@ const Earthing = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
-              <a href="tel:+917065005544" className="flex items-center">
+              <a href="tel:+917428124360" className="flex items-center">
                 <Phone className="mr-2 h-5 w-5" />
-                Call Now: +91-7065005544
+                Call Now: +91-7428124360
               </a>
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">

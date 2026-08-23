@@ -16,7 +16,7 @@ const Clients = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
           {logos.map((logo, idx) => (
             <div key={idx} className="flex justify-center">
-              <img src={logo} alt={`Client ${idx + 1}`} className="h-16 object-contain grayscale hover:grayscale-0 transition" />
+              <img src={(logo as any).src || logo} alt={`Client ${idx + 1}`} className="h-16 object-contain grayscale hover:grayscale-0 transition" />
             </div>
           ))}
         </div>

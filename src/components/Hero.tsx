@@ -9,7 +9,7 @@ const Hero = () => {
       id="home"
       className="relative min-h-screen flex items-center text-white"
       style={{
-        backgroundImage: `url("${heroBg}")`,
+        backgroundImage: `url("${(heroBg as any).src || heroBg}")`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

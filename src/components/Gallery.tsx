@@ -93,7 +93,7 @@ const Gallery: FC = () => {
                   }}
                 >
                   <img
-                    src={src}
+                    src={(src as any).src || src}
                     alt={`Gallery ${idx + 1}`}
                     className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
                   />
@@ -146,7 +146,7 @@ const Gallery: FC = () => {
         open={lightboxOpen}
         close={() => setLightboxOpen(false)}
         index={currentIndex}
-        slides={images.map((src) => ({ src }))}
+        slides={images.map((src) => ({ src: (src as any).src || src }))}
         plugins={[Thumbnails]}
       />
 

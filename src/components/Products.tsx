@@ -37,7 +37,7 @@ import cable from "@/assets/cable.jpg";
 type Product = {
   title: string;
   description: string;
-  image: string;
+  image: any;
   properties: { name: string; value: string }[];
   specifications: string[];
   details: string;
@@ -454,7 +454,7 @@ const Products = () => {
               >
                 <div className="relative aspect-video overflow-hidden">
                   <img
-                    src={product.image}
+                    src={product.image.src || product.image}
                     alt={product.title}
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                   />
@@ -519,7 +519,7 @@ const Products = () => {
             </button>
 
             <img
-              src={selectedProduct.image}
+              src={selectedProduct.image.src || selectedProduct.image}
               alt={selectedProduct.title}
               className="w-full hidden md:block h-40 object-cover rounded-lg mb-4"
             />

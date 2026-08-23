@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Zap, Award, Facebook, Instagram, Linkedin } from "lucide-react";
 import heroBg from "@/assets/banner.jpg";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
@@ -21,7 +22,12 @@ const Hero = () => {
       <div className="relative container   z-10">
         <div className="grid lg:grid-cols-1 gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-8 py-2 md:py-10 pl-5 pr-5 md:pl-10 mt-14 md:mt-0 md:pr-96 bg-[#000000] bg-opacity-40 border border-[#000000]  rounded-lg">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="space-y-8 py-2 md:py-10 pl-5 pr-5 md:pl-10 mt-14 md:mt-0 md:pr-96 bg-[#000000] bg-opacity-40 border border-[#000000]  rounded-lg"
+          >
             <div className="space-y-4">
               <h2 className="text-3xl lg:text-5xl font-bold leading-tight">
                 Trusted Cable Tray  <span className="text-orange-400">Manufacturer & Leading Supplier </span>
@@ -63,7 +69,7 @@ const Hero = () => {
               </Button>
 
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 

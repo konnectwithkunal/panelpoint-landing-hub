@@ -4,6 +4,7 @@ import { Users, Factory, Clock, TrendingUp } from "lucide-react";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const About = () => {
   const stats = [
@@ -24,7 +25,13 @@ const About = () => {
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Text */}
-          <div className="space-y-8">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="space-y-8"
+          >
             <div className="space-y-4">
               <h2 className="text-4xl font-bold text-foreground">
                 About <span className="text-[#FB923C]">JP Shine Electricals</span>
@@ -47,13 +54,17 @@ const About = () => {
                 <ArrowRight className="h-5 w-5 inline-block ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
-          </div>
+          </motion.div>
 
           {/* Right Stats */}
           <div ref={ref} className="grid grid-cols-2 gap-6">
             {stats.map((stat, index) => (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="bg-card p-6 rounded-lg shadow-primary text-center"
               >
                 <stat.icon className="h-12 w-12 text-[#045AA2] mx-auto mb-4" />
@@ -68,7 +79,7 @@ const About = () => {
                   )}
                 </div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

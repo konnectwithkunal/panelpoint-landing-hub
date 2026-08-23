@@ -5,6 +5,7 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { motion } from "framer-motion";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -57,18 +58,30 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 bg-[#f8fafc]">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Get In <span className="text-[#FB923C]">Touch</span>
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
             Ready to discuss your cable tray and raceway requirements? Contact our expert team today.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Form */}
-          <div className="lg:col-span-2">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-2"
+          >
             <div className="bg-white rounded-lg shadow-lg p-6">
               <h3 className="text-xl font-bold mb-6">Send us a Message</h3>
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -110,10 +123,16 @@ const Contact = () => {
                 </button>
               </form>
             </div>
-          </div>
+          </motion.div>
 
           {/* Contact Info Cards */}
-          <div className="space-y-6">
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
+          >
             <div className="bg-white rounded-lg shadow-lg p-6">
               <div className="flex items-center mb-2">
                 <Phone className="h-5 w-5 text-[#EF7F1A] mr-2" />
@@ -155,7 +174,7 @@ const Contact = () => {
                 <span className="text-gray-500">Closed</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

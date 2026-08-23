@@ -1,4 +1,6 @@
 "use client";
+import { motion } from "framer-motion";
+
 const Locations = () => {
  const cities = [
   // Delhi NCR
@@ -67,14 +69,25 @@ const Locations = () => {
   "Sagar",
 ];
 
-
   return (
     <section id="locations" className="py-20 bg-section-bg">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-4xl font-bold mb-8">
+        <motion.h2 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+          className="text-4xl font-bold mb-8"
+        >
           We Deliver Across <span className="text-orange-500">India</span>
-        </h2>
-        <div className="flex flex-wrap justify-center gap-4">
+        </motion.h2>
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex flex-wrap justify-center gap-4"
+        >
           {cities.map((city, index) => (
             <div
               key={index}
@@ -83,7 +96,7 @@ const Locations = () => {
               {city}
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

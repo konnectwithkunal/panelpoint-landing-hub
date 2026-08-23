@@ -3,6 +3,7 @@ import { Star } from "lucide-react";
 import client1 from "@/assets/testimonial1.png";
 import client2 from "@/assets/testimonial2.jpeg";
 import client3 from "@/assets/testimonial3.jpeg";
+import { motion } from "framer-motion";
 
 const Testimonials = () => {
   const testimonials = [
@@ -35,15 +36,25 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className="py-20 bg-muted">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-4xl font-bold mb-12">
+        <motion.h2 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+          className="text-4xl font-bold mb-12"
+        >
           What Our <span className="text-orange-500">Clients Say</span>
-        </h2>
+        </motion.h2>
 
         {/* Testimonials Grid */}
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {testimonials.map((t, idx) => (
-            <div
+            <motion.div
               key={idx}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="bg-background rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition-all"
             >
               <img
@@ -62,12 +73,18 @@ const Testimonials = () => {
                 ))}
               </div>
               <p className="text-muted-foreground text-sm">{t.feedback}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* SEO Content Section */}
-        <div className="w-full mx-auto text-left bg-background p-8 rounded-lg shadow">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          className="w-full mx-auto text-left bg-background p-8 rounded-lg shadow"
+        >
           <h3 className="text-2xl font-semibold mb-4 text-orange-500">
             Cable Tray Manufacturers & Suppliers in India
           </h3>
@@ -94,7 +111,7 @@ const Testimonials = () => {
             Contact us today to learn more about our cable tray solutions and get
             a quote.
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

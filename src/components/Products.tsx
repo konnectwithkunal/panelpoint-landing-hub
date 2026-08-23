@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -410,7 +411,13 @@ const Products = () => {
   return (
     <section id="products" className="py-20 relative">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
           <h2 className="text-4xl font-bold text-foreground mb-4">
             Our <span className="text-[#FB923C]">Products</span>
           </h2>
@@ -418,7 +425,7 @@ const Products = () => {
             High-quality cable trays and raceways designed for reliable cable management and fast
             installation
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
           {products.map((product, index) => {
@@ -448,10 +455,17 @@ const Products = () => {
               );
 
             return (
-              <Card
+              <motion.div
                 key={index}
-                className="group bg-white rounded-2xl overflow-hidden border border-[#045AA2]/20 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="flex"
               >
+                <Card
+                  className="group bg-white rounded-2xl overflow-hidden border border-[#045AA2]/20 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col w-full"
+                >
                 <div className="relative aspect-video overflow-hidden">
                   <img
                     src={product.image.src || product.image}
@@ -502,6 +516,7 @@ const Products = () => {
 
                 </CardContent>
               </Card>
+            </motion.div>
             );
           })}
         </div>

@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 
 import Lightbox from "yet-another-react-lightbox";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
+import { motion } from "framer-motion";
 
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
@@ -61,11 +62,23 @@ const Gallery: FC = () => {
   return (
     <section id="gallery" className="py-20 bg-blue-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-12 text-center">
+        <motion.h2 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+          className="text-4xl font-bold mb-12 text-center"
+        >
           Our <span className="text-orange-500">Gallery</span>
-        </h2>
+        </motion.h2>
 
-        <div className="relative">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="relative"
+        >
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={20}
@@ -138,7 +151,7 @@ const Gallery: FC = () => {
   </button>
 </div>
 
-        </div>
+        </motion.div>
       </div>
 
       {/* Lightbox */}

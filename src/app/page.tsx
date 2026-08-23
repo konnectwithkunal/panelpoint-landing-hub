@@ -2,16 +2,15 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Products from "@/components/Products";
+import WhyUs from "@/components/WhyUs";
+import Locations from "@/components/Locations";
+import Gallery from "@/components/Gallery";
+import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import WhyUs from "@/components/WhyUs";
-import Clients from "@/components/Clients";
-import Gallery from "@/components/Gallery";
-import Locations from "@/components/Locations";
-import Testimonials from "@/components/Testimonials";
 import WhatsAppButton from "@/components/WhatsappButton";
 
-const Index = () => {
+export default function Home() {
   return (
     <div className="min-h-screen">
       <Header />
@@ -22,11 +21,9 @@ const Index = () => {
       <Locations />
       <Gallery />
       <Testimonials />
-      <WhatsAppButton/>
       <Contact />
-      <Footer />
+            <Footer />
+      <WhatsAppButton />
     </div>
   );
-};
-
-export default Index;
+}

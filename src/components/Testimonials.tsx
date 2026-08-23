@@ -1,3 +1,4 @@
+"use client";
 import { Star } from "lucide-react";
 import client1 from "@/assets/testimonial1.png";
 import client2 from "@/assets/testimonial2.jpeg";

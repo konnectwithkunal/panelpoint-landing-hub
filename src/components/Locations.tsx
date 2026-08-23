@@ -1,3 +1,4 @@
+"use client";
 const Locations = () => {
  const cities = [
   // Delhi NCR

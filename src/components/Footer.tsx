@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 

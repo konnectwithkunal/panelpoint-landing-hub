@@ -1,3 +1,4 @@
+"use client";
 import client1 from "@/assets/testimonial1.png";
 import client2 from "@/assets/testimonial1.png";
 import client3 from "@/assets/testimonial1.png";

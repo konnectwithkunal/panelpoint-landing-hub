@@ -1,0 +1,265 @@
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
+import "./globals.css";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+/* ────────────────────────────────────────────
+   SEO — Metadata
+   ──────────────────────────────────────────── */
+export const metadata: Metadata = {
+  metadataBase: new URL("https://jpshineelectrical.com"),
+
+  title: {
+    default:
+      "Cable Tray Manufacturer in Delhi NCR | JP Shine Electrical",
+    template: "%s | JP Shine Electrical",
+  },
+
+  description:
+    "Leading cable tray manufacturer and supplier in Delhi NCR. We offer perforated GI cable trays, powder-coated trays, cable ladders, raceways, and GI ladder trays. ISO 9001:2015 certified.",
+
+  keywords: [
+    "cable tray",
+    "cable tray manufacturer",
+    "cable tray supplier",
+    "GI cable tray",
+    "perforated cable tray",
+    "ladder cable tray",
+    "raceway",
+    "cable tray manufacturer in Delhi NCR",
+    "cable tray manufacturer in India",
+    "GI perforated cable tray",
+    "powder coated cable tray",
+    "hot dip galvanized cable tray",
+    "walkway cable tray",
+    "compartment raceway",
+    "JP Electrical",
+    "cable management",
+    "cable tray Greater Noida",
+    "cable tray Gurugram",
+  ],
+
+  authors: [{ name: "JP Shine Electrical" }],
+
+  creator: "JP Shine Electrical",
+
+  publisher: "JP Shine Electrical",
+
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large" as const,
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
+
+  alternates: {
+    canonical: "https://jpshineelectrical.com",
+  },
+
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://jpshineelectrical.com",
+    siteName: "JP Shine Electrical – Trusted Cable Tray Manufacturer in India",
+    title: "Cable Tray Manufacturer in Delhi NCR | JP Shine Electrical",
+    description:
+      "Leading cable tray manufacturer and supplier in Delhi NCR. Perforated GI cable trays, powder-coated trays, cable ladders, raceways, and GI ladder trays.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "JP Shine Electrical – Cable Tray Manufacturer",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Cable Tray Manufacturer in Delhi NCR | JP Shine Electrical",
+    description:
+      "Leading cable tray manufacturer and supplier in Delhi NCR. Perforated GI cable trays, powder-coated trays, cable ladders, raceways.",
+    images: ["/og-image.jpg"],
+  },
+
+  verification: {
+    // Add Google Search Console verification if available
+    // google: "your-verification-code",
+  },
+
+  category: "Industrial Manufacturing",
+};
+
+/* ────────────────────────────────────────────
+   JSON-LD Structured Data
+   ──────────────────────────────────────────── */
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://jpshineelectrical.com/#organization",
+      name: "JP Shine Electrical",
+      url: "https://jpshineelectrical.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://jpshineelectrical.com/logo.png",
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+91-7836870201",
+        contactType: "sales",
+        areaServed: "IN",
+        availableLanguage: ["English", "Hindi"],
+      },
+      address: {
+        "@type": "PostalAddress",
+        streetAddress:
+          "J-80, Site-C, Surajpur Industrial Area",
+        addressLocality: "Greater Noida",
+        addressRegion: "Uttar Pradesh",
+        postalCode: "201306",
+        addressCountry: "IN",
+      },
+      sameAs: [
+        "https://www.facebook.com/jpelectricalcontrols",
+        "https://www.instagram.com/jpelectricalcontrols",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://jpshineelectrical.com/#website",
+      url: "https://jpshineelectrical.com",
+      name: "JP Shine Electrical – Trusted Cable Tray Manufacturer in India",
+      description: "Expertly Engineered Cable Trays for Every Industry",
+      publisher: { "@id": "https://jpshineelectrical.com/#organization" },
+      inLanguage: "en-IN",
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate:
+            "https://jpshineelectrical.com/?s={search_term_string}",
+        },
+        "query-input": {
+          "@type": "PropertyValueSpecification",
+          valueRequired: true,
+          valueName: "search_term_string",
+        },
+      },
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://jpshineelectrical.com/#webpage",
+      url: "https://jpshineelectrical.com",
+      name: "Cable Tray Manufacturer in Delhi NCR | JP Shine Electrical",
+      isPartOf: { "@id": "https://jpshineelectrical.com/#website" },
+      about: { "@id": "https://jpshineelectrical.com/#organization" },
+      description:
+        "Leading cable tray manufacturer and supplier in Delhi NCR. We offer perforated GI cable trays, powder-coated trays, cable ladders, raceways, and GI ladder trays.",
+      inLanguage: "en-IN",
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://jpshineelectrical.com/#localbusiness",
+      name: "JP Shine Electrical",
+      image: "https://jpshineelectrical.com/og-image.jpg",
+      url: "https://jpshineelectrical.com",
+      telephone: "+91-7836870201",
+      email: "sales@jpelectricalcontrols.com",
+      priceRange: "$$",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress:
+          "J-80, Site-C, Surajpur Industrial Area",
+        addressLocality: "Greater Noida",
+        addressRegion: "Uttar Pradesh",
+        postalCode: "201306",
+        addressCountry: "IN",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 28.5355,
+        longitude: 77.3910,
+      },
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ],
+        opens: "09:00",
+        closes: "18:00",
+      },
+    },
+  ],
+};
+
+/* ────────────────────────────────────────────
+   Layout Component
+   ──────────────────────────────────────────── */
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+    >
+      <head>
+        {/* ── Google Tag Manager ── */}
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-P6VDBRLF');
+            `,
+          }}
+        />
+
+        {/* ── JSON-LD Structured Data ── */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+
+      <body className="min-h-full flex flex-col">
+        {/* ── GTM noscript fallback ── */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-P6VDBRLF"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+
+        {children}
+      </body>
+    </html>
+  );
+}

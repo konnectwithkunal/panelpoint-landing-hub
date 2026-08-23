@@ -1,3 +1,4 @@
+"use client";
 const WhatsAppButton = () => {
   return (
     <div className="fixed bottom-10 left-6 flex flex-col gap-3 z-50">

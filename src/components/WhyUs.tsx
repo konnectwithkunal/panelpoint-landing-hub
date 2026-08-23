@@ -1,3 +1,4 @@
+"use client";
 import { ShieldCheck, Clock, TrendingUp, Award, ThumbsUp, Star, BarChart3, Wallet } from "lucide-react";
 
 const WhyUs = () => {

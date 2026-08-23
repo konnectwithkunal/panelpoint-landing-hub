@@ -1,9 +1,11 @@
+"use client";
 // src/components/Products.tsx (or wherever you keep it)
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -322,7 +324,7 @@ const Products = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [viewMode, setViewMode] = useState<Record<number, "specifications" | "properties">>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const navigate = useNavigate();
+  const router = useRouter();
   // react-hook-form setup
   const {
     register,
@@ -358,8 +360,8 @@ const Products = () => {
     setIsSubmitting(true);
 
     // prefer VITE_API_URL in .env (for local dev set VITE_API_URL=http://localhost:5000)
-    const base = import.meta.env.VITE_API_URL
-      ? import.meta.env.VITE_API_URL.replace(/\/$/, "")
+    const base = ""
+      ? "".replace(/\/$/, "")
       : "http://localhost:5000";
 
     const endpoint = `${base}/send`;
@@ -382,7 +384,7 @@ const Products = () => {
       }
 
       // success: navigate to thank-you page with state
-      navigate("/thank-you", {
+      router.push("/thank-you", {
         state: {
           name: data.name,
           from: "contact",
